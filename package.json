@@ -38,5 +38,4 @@
     "jest": "^23.6.0"
   },
 
-  "proxy": "http://localhost:3000"
 }
