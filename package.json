@@ -1,16 +1,25 @@
 {
-  "name": "indecision-app",
+  "name": "expensify",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "moment": "^2.22.2",
+    "node-sass": "^4.10.0",
     "react": "^16.6.3",
+    "react-dates": "^18.2.2",
     "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "react-modal": "^3.6.1",
+    "react-redux": "^5.1.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1",
+    "redux": "^4.0.1",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
+    "testt": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -21,5 +30,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
 }
