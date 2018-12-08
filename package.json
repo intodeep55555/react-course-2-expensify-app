@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "express": "^4.16.4",
     "moment": "^2.22.2",
     "node-sass": "^4.10.0",
     "react": "^16.6.3",
@@ -16,12 +17,14 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start":"node server/server.js",
+    "startt": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
     "testt": "react-scripts test",
     "eject": "react-scripts eject"
   },
+
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -33,5 +36,7 @@
   ],
   "devDependencies": {
     "jest": "^23.6.0"
-  }
+  },
+
+  "proxy": "http://localhost:3000"
 }
