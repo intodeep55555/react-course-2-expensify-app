@@ -106,10 +106,6 @@ $ git push -u origin master
 —-(Production server with Express)———————————————
 Codes for server is defined in “server” directory
 
-The main feature is directing to index.html of build folder
-after build command below
-$ npm run build
-
 add Express for server
 $ npm add express
 
@@ -127,6 +123,10 @@ $ heroku login
 
 $ heroku create react-course-2-expensify-55555
 (see the heroku is also added in git with “$ git remote”)
+
+The main feature is directing to index.html of build folder
+after build command below
+$ npm run build
 
 Comment out “/build” in .gitignore then,
 $ git add .
