@@ -4,7 +4,13 @@ HOW TO CREATE APP
 
 $ create-react-app ‘folder name’
 $ cd ‘folder name’
-$ npm start
+
+Modify the package.json with below for dev environment
+ startdev: “react-scripts start”
+(We add “start” for production env later)
+
+Check the code with dev environment
+$ npm run startdev
 
 (
 Then index.js will load your code 
@@ -38,6 +44,12 @@ $ npm install moment —save
 
 add calender
 $ npm install react-dates
+
+add numeral
+$ npm add numeral
+
+(add chalk(only for heroku devenv)
+$ npm add chalk-—dev) <- seems you don’t have to add this
 
 add Jest(React Testing Components)
 $ npm install --save-dev jest
@@ -103,7 +115,7 @@ $ npm add express
 
 modify “package.json” with below
 "scripts": {
-    "start":"node server/server.js",
+    "startpro”:”node server/server.js",
 
 ———(Heroku for deploying production)——————
 
@@ -120,7 +132,7 @@ Comment out “/build” in .gitignore then,
 $ git add .
 $ git commit -m "Setup production build and server"
 
-push to github
+push to GitHub
 $ git push
 
 push to heroku
