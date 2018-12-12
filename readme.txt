@@ -145,7 +145,19 @@ $ heroku open
 or direct access URL 
 (in this case)“https://react-course-2-expensify-55555.herokuapp.com/“
 
-———————————————————————————————————————
+———(FireBase)—————————————————————————————————
+$ npm add firebase
+
+Create a Realtime Database in “firebase.com” with test mode(read: true, write: true).
+Then, add FireBase code to app by clicking “</>” in Project Overview page.
+
+->add to created ‘/firebase/firebase.jp’ in project.
+
+add Redux-Thunk
+$ npm add redex-thunk
+
+
+
 
 
 

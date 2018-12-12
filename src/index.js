@@ -10,6 +10,9 @@ import {addExpense} from './actions/expenses';
 import {setTextFilter} from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 
+//import FireBase
+import './firebase/firebase';
+
 //combining REDUX
 import configureStore from './store/configureStore';
 const store = configureStore();
