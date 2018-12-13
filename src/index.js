@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import './styles/styles.scss';
 
 //Manipulate Expenses and filters and Showing the results
-import {addExpense} from './actions/expenses';
+import {startSetExpenses} from './actions/expenses';
 import {setTextFilter} from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 
@@ -25,7 +25,12 @@ const jsx = (
   </Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById('root'));
+
+ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
+//If fectching data from DB succeeded, then go to main page.
+store.dispatch(startSetExpenses()).then(() => {
+  ReactDOM.render(jsx, document.getElementById('root'));
+});
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
