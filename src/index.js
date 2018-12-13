@@ -25,7 +25,6 @@ const jsx = (
   </Provider>
 );
 
-
 ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
 //If fectching data from DB succeeded, then go to main page.
 store.dispatch(startSetExpenses()).then(() => {
