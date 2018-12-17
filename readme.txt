@@ -58,6 +58,9 @@ then add “test”: “jest” to scripts in package.json,
 writing test code in app.test.js
 $ npm test -— -—watch (For test, instead of using “npm start”)
 
+add history(login logout history)
+$ npm add history
+
 ——(git)—————————————————————————————
 type the command below in project folder
 $ git init
@@ -148,7 +151,7 @@ or direct access URL
 ———(FireBase)—————————————————————————————————
 $ npm add firebase
 
-Create a Realtime Database in “firebase.com” with test mode(read: true, write: true).
+Create a Realtime Database in “firebase.com” with certain “RULES”.
 Then, add FireBase code to app by clicking “</>” in Project Overview page.
 
 ->add to created ‘/firebase/firebase.jp’ in project.
@@ -156,6 +159,13 @@ Then, add FireBase code to app by clicking “</>” in Project Overview page.
 add Redux-Thunk
 $ npm add redex-thunk
 
+Enable google signin ‘Sign-in method’ in ‘Authentication’
+->add ‘const googleProvider…’ code in ‘firebase.js’ and
+  ‘firebase.auth()…’ code in ‘index.js’ and 
+  add ’/actions/auth.js’
+
+add Authorized domain with production URL
+(this case: react-course-2-expensify-55555.herokuapp.com/)
 
 
 

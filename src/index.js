@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import AppRouter from './routers/AppRouter';
+import AppRouter,{history} from './routers/AppRouter';
 import * as serviceWorker from './serviceWorker';
 import './styles/styles.scss';
 
 //Manipulate Expenses and filters and Showing the results
 import {startSetExpenses} from './actions/expenses';
-import {setTextFilter} from './actions/filters';
+import {login, logout} from './actions/auth';
 import getVisibleExpenses from './selectors/expenses';
 
 //import FireBase
-import './firebase/firebase';
+import {firebase} from './firebase/firebase';
 
 //combining REDUX
 import configureStore from './store/configureStore';
@@ -25,10 +25,34 @@ const jsx = (
   </Provider>
 );
 
+let hasRendered = false;
+const renderApp = () => {
+  if(!hasRendered){
+    ReactDOM.render(jsx, document.getElementById('root'));
+    hasRendered = true;
+  }
+}
+
 ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
-//If fectching data from DB succeeded, then go to main page.
-store.dispatch(startSetExpenses()).then(() => {
-  ReactDOM.render(jsx, document.getElementById('root'));
+
+//login logout directiing
+firebase.auth().onAuthStateChanged((user)=>{
+  if(user){
+    //If fectching data from DB succeeded, then render page page.
+    store.dispatch(login(user.uid));
+    store.dispatch(startSetExpenses()).then(() => {
+      renderApp();
+      //if you are in login page then
+      if(history.location.pathname === '/'){
+        history.push('/dashboard');
+      }
+    });
+  //if login fails
+  }else{
+    store.dispatch(logout());
+    renderApp();
+    history.push('/'); //direct to login page('/' defined in AppRouter.js)
+  }
 });
 
 // If you want your app to work offline and load faster, you can change
