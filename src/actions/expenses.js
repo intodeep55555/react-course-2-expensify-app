@@ -1,6 +1,6 @@
 //actions for dispatching by redux
 //dispatched action goes to reducers
-import uuid from 'uuid';
+//import uuid from 'uuid';
 import database from '../firebase/firebase';
 
 //AddEXPENSE
@@ -66,8 +66,8 @@ export const setExpenses = (expenses) => ({
 });
 export const startSetExpenses = () =>{
   return (dispatch, getState) => {
-    //below return for tossing data to 'then' in "index.js"
     const uid = getState().auth.uid;
+    //below return for tossing data to 'then' in "index.js"
     return database.ref(`users/${uid}/expenses`).once('value').then((snapshot) => {
       const expenses = [];
       snapshot.forEach((childSnapshot)=>{

@@ -5,14 +5,13 @@ import AppRouter,{history} from './routers/AppRouter';
 import * as serviceWorker from './serviceWorker';
 import './styles/styles.scss';
 
-//Manipulate Expenses and filters and Showing the results
 import {startSetExpenses} from './actions/expenses';
 import {login, logout} from './actions/auth';
-import getVisibleExpenses from './selectors/expenses';
 
 //import FireBase
 import {firebase} from './firebase/firebase';
 
+import LoadingPage from './components/LoadingPage';
 //combining REDUX
 import configureStore from './store/configureStore';
 const store = configureStore();
@@ -33,11 +32,11 @@ const renderApp = () => {
   }
 }
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
+ReactDOM.render(<LoadingPage />, document.getElementById('root'));
 
 //login logout directiing
 firebase.auth().onAuthStateChanged((user)=>{
-  if(user){
+  if(user){//user will be automatically filled in if logged in, or it will be null
     //If fectching data from DB succeeded, then render page page.
     store.dispatch(login(user.uid));
     store.dispatch(startSetExpenses()).then(() => {
